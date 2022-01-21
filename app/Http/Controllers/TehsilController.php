@@ -15,7 +15,7 @@ class TehsilController extends Controller
      */
     public function index()
     {
-        //
+        return view('project.tehsil.index');
     }
 
     /**
@@ -36,7 +36,18 @@ class TehsilController extends Controller
      */
     public function store(StoreTehsilRequest $request)
     {
-        //
+        $tehsil = Tehsil::create($request->all());
+        if ($tehsil == true){
+            return redirect(route('dashboard.tehsil.index'))->with([
+                'msg' => 'Tehsil Created!',
+                'status' => 'success'
+            ]);
+        } else {
+            return redirect(route('dashboard.district.index'))->with([
+                'msg' => 'Server Error!',
+                'status' => 'error'
+            ]);
+        }
     }
 
     /**
@@ -58,7 +69,8 @@ class TehsilController extends Controller
      */
     public function edit(Tehsil $tehsil)
     {
-        //
+        $data = $tehsil;
+        return view('project.tehsil.update',compact('data'));
     }
 
     /**
@@ -70,7 +82,18 @@ class TehsilController extends Controller
      */
     public function update(UpdateTehsilRequest $request, Tehsil $tehsil)
     {
-        //
+        $tehsil->update($request->all());
+        if ($tehsil == true){
+            return redirect(route('dashboard.tehsil.index'))->with([
+                'msg' => 'Tehsil Update!',
+                'status' => 'success'
+            ]);
+        } else {
+            return redirect(route('dashboard.district.index'))->with([
+                'msg' => 'Server Error!',
+                'status' => 'error'
+            ]);
+        }
     }
 
     /**
@@ -81,6 +104,17 @@ class TehsilController extends Controller
      */
     public function destroy(Tehsil $tehsil)
     {
-        //
+        $tehsil->delete();
+        if ($tehsil == true){
+            return redirect(route('dashboard.tehsil.index'))->with([
+                'msg' => 'Tehsil Delete!',
+                'status' => 'success'
+            ]);
+        } else {
+            return redirect(route('dashboard.district.index'))->with([
+                'msg' => 'Server Error!',
+                'status' => 'error'
+            ]);
+        }
     }
 }

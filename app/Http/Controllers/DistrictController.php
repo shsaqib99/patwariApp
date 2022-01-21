@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\District;
 use App\Http\Requests\StoreDistrictRequest;
 use App\Http\Requests\UpdateDistrictRequest;
+use http\Env\Request;
 
 class DistrictController extends Controller
 {
@@ -15,7 +16,7 @@ class DistrictController extends Controller
      */
     public function index()
     {
-        //
+        return view('project.district.index');
     }
 
     /**
@@ -36,7 +37,19 @@ class DistrictController extends Controller
      */
     public function store(StoreDistrictRequest $request)
     {
-        //
+        $district = District::create($request->all());
+
+        if ($district == true){
+            return redirect(route('dashboard.district.index'))->with([
+                'msg' => 'District Created!',
+                'status' => 'success'
+            ]);
+        } else {
+            return redirect(route('dashboard.district.index'))->with([
+                'msg' => 'Server Error!',
+                'status' => 'error'
+            ]);
+        }
     }
 
     /**
@@ -58,7 +71,8 @@ class DistrictController extends Controller
      */
     public function edit(District $district)
     {
-        //
+        $data = $district;
+        return view('project.district.update',compact('data'));
     }
 
     /**
@@ -70,7 +84,18 @@ class DistrictController extends Controller
      */
     public function update(UpdateDistrictRequest $request, District $district)
     {
-        //
+        $district->update($request->all());
+        if ($district == true){
+            return redirect(route('dashboard.district.index'))->with([
+                'msg' => 'District Update!',
+                'status' => 'success'
+            ]);
+        } else {
+            return redirect(route('dashboard.district.index'))->with([
+                'msg' => 'Server Error!',
+                'status' => 'error'
+            ]);
+        }
     }
 
     /**
@@ -81,6 +106,17 @@ class DistrictController extends Controller
      */
     public function destroy(District $district)
     {
-        //
+        $district->delete();
+        if ($district == true){
+            return redirect(route('dashboard.district.index'))->with([
+                'msg' => 'District Delete!',
+                'status' => 'success'
+            ]);
+        } else {
+            return redirect(route('dashboard.district.index'))->with([
+                'msg' => 'Server Error!',
+                'status' => 'error'
+            ]);
+        }
     }
 }

@@ -14,5 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('home');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::group(['middleware' => ['auth', 'web']], function() {
+
+    /*district*/
+    Route::resource('district', \App\Http\Controllers\DistrictController::class, ['as' => 'dashboard']);
+
+    /*tehdil*/
+    Route::resource('tehsil', \App\Http\Controllers\TehsilController::class, ['as' => 'dashboard']);
+
 });

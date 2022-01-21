@@ -10,7 +10,8 @@ class Tehsil extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'name',
+        'district_id'
     ];
     public function district(){
         return $this->belongsTo(District::class);
