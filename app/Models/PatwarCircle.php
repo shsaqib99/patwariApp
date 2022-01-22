@@ -11,7 +11,7 @@ class PatwarCircle extends Model
 
     protected $fillable = [
         'name',
-        'qanoongoi_id'
+        'qanoongoi_id',
     ];
 
     public function qanoongoi(){

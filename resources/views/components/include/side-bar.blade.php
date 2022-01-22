@@ -83,6 +83,16 @@
                     </a>
                 </li>
 
+{{--                PatwarCircle--}}
+                <li class="nav-item">
+                    <a href="{{ route('dashboard.PatwarCircle.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Patwar Circle
+                        </p>
+                    </a>
+                </li>
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

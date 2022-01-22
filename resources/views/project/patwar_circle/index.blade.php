@@ -36,11 +36,11 @@
                                             <td>{{ $item->Qanoongoi->Tehsil->District->name }}</td>
                                             <td>
                                                 <div class="btn-group-sm">
-                                                    <a href="{{ route('dashboard.patwarcircle.edit',$item->id) }}" class="btn btn-success">
+                                                    <a href="{{ route('dashboard.PatwarCircle.edit',$item->id) }}" class="btn btn-success">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
 
-                                                    <button type="button" onclick="deleteFun('{{ $item->id }}','{{ route('dashboard.patwarcircle.destroy',$item->id) }}')" class="btn btn-danger">
+                                                    <button type="button" onclick="deleteFun('{{ $item->id }}','{{ route('dashboard.PatwarCircle.destroy',$item->id) }}')" class="btn btn-danger">
                                                         <i class="fa fa-trash"></i>
                                                     </button>
                                                 </div>
@@ -72,7 +72,7 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{ route('dashboard.patwarcircle.store') }}" method="POST">
+                <form action="{{ route('dashboard.PatwarCircle.store') }}" method="POST">
                     @csrf
                     <div class="modal-body">
                         <label for="">Select District</label>

@@ -57,10 +57,10 @@ class PatwarCircleController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\PatwarCircle  $patwarCircle
+     * @param  \App\Models\PatwarCircle  $PatwarCircle
      * @return \Illuminate\Http\Response
      */
-    public function show(PatwarCircle $patwarCircle)
+    public function show(PatwarCircle $PatwarCircle)
     {
         //
     }
@@ -68,7 +68,7 @@ class PatwarCircleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\PatwarCircle  $patwarCircle
+     * @param  \App\Models\PatwarCircle  $PatwarCircle
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -81,19 +81,19 @@ class PatwarCircleController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdatePatwarCircleRequest  $request
-     * @param  \App\Models\PatwarCircle  $patwarCircle
+     * @param  \App\Models\PatwarCircle  $PatwarCircle
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePatwarCircleRequest $request, PatwarCircle $patwarCircle)
+    public function update(UpdatePatwarCircleRequest $request, PatwarCircle $PatwarCircle)
     {
-        $patwarCircle->update($request->all());
-        if ($patwarCircle == true){
-            return redirect(route('dashboard.patwarcircle.index'))->with([
+        $PatwarCircle->update($request->all());
+        if ($PatwarCircle == true){
+            return redirect(route('dashboard.PatwarCircle.index'))->with([
                 'msg' => 'Patwar Cicle Update!',
                 'status' => 'success'
             ]);
         } else {
-            return redirect(route('dashboard.patwarcircle.update'))->with([
+            return redirect(route('dashboard.PatwarCircle.update'))->with([
                 'msg' => 'Server Error!',
                 'status' => 'error'
             ]);
@@ -103,15 +103,13 @@ class PatwarCircleController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\PatwarCircle  $patwarCircle
+     * @param  \App\Models\PatwarCircle  $PatwarCircle
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PatwarCircle $patwarCircle)
+    public function destroy(PatwarCircle $PatwarCircle)
     {
-        dd($patwarCircle);
-
-        $patwarCircle->delete();
-        if ($patwarCircle == true){
+        $PatwarCircle->delete();
+        if ($PatwarCircle == true){
             return redirect(route('dashboard.patwarcircle.index'))->with([
                 'msg' => 'Patwar Cicle Delete!',
                 'status' => 'success'

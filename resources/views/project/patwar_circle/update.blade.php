@@ -14,7 +14,7 @@
                             Edit Patwar Circle
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('dashboard.patwarcircle.update',$data->id) }}" method="post">
+                            <form action="{{ route('dashboard.PatwarCircle.update',$data->id) }}" method="post">
                                 @method('put')
                                 @csrf
                                 <div class="row">
@@ -29,7 +29,7 @@
                                         <br>
 
                                         <label for="">Select Tehsil</label>
-                                        <select name="tehsil_id" class="form-control" id="tehsil" disabled="">
+                                        <select class="form-control" id="tehsil" disabled="">
                                             <option value="">Select Tehsil</option>
                                             @foreach(tehsilData() as $item)
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>

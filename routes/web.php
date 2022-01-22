@@ -33,6 +33,6 @@ Route::group(['middleware' => ['auth', 'web']], function() {
     Route::resource('qanoongoi', \App\Http\Controllers\QanoongoiController::class, ['as' => 'dashboard']);
 
     /*patwar circle*/
-    Route::resource('patwarcircle', \App\Http\Controllers\PatwarCircleController::class, ['as' => 'dashboard']);
+    Route::resource('PatwarCircle', \App\Http\Controllers\PatwarCircleController::class, ['as' => 'dashboard']);
 
 });
