@@ -24,7 +24,7 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach(DistrictData() as $key => $item)
+                                    @foreach($district as $key => $item)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $item->name }}</td>
@@ -37,10 +37,6 @@
                                                 <button type="button" onclick="deleteFun('{{ $item->id }}','{{ route('dashboard.district.destroy',$item->id) }}')" class="btn btn-danger">
                                                     <i class="fa fa-trash"></i>
                                                 </button>
-                                                <form action="{{ route('dashboard.district.destroy',$item->id) }}" method="post" id="deleteForm">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                </form>
                                             </div>
                                         </td>
                                     </tr>

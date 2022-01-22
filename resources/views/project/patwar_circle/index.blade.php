@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('title')
-    Tehsil
+    Patwar Circle
 @endsection
 
 @section('content')
@@ -19,24 +19,28 @@
                                     <thead>
                                     <tr>
                                         <th>ID</th>
+                                        <th>Patwar Circle</th>
+                                        <th>Qanoongoi</th>
                                         <th>Tehsil</th>
                                         <th>District</th>
                                         <th>Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($tehsil as $key => $item)
+                                    @foreach($patwar_circle as $key => $item)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
                                             <td>{{ $item->name }}</td>
-                                            <td>{{ $item->district->name }}</td>
+                                            <td>{{ $item->Qanoongoi->name }}</td>
+                                            <td>{{ $item->Qanoongoi->Tehsil->name }}</td>
+                                            <td>{{ $item->Qanoongoi->Tehsil->District->name }}</td>
                                             <td>
                                                 <div class="btn-group-sm">
-                                                    <a href="{{ route('dashboard.tehsil.edit',$item->id) }}" class="btn btn-success">
+                                                    <a href="{{ route('dashboard.patwarcircle.edit',$item->id) }}" class="btn btn-success">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
 
-                                                    <button type="button" onclick="deleteFun('{{ $item->id }}','{{ route('dashboard.tehsil.destroy',$item->id) }}')" class="btn btn-danger">
+                                                    <button type="button" onclick="deleteFun('{{ $item->id }}','{{ route('dashboard.patwarcircle.destroy',$item->id) }}')" class="btn btn-danger">
                                                         <i class="fa fa-trash"></i>
                                                     </button>
                                                 </div>
@@ -68,19 +72,29 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form action="{{ route('dashboard.tehsil.store') }}" method="POST">
+                <form action="{{ route('dashboard.patwarcircle.store') }}" method="POST">
                     @csrf
                     <div class="modal-body">
                         <label for="">Select District</label>
-                        <select name="district_id" class="form-control" id="">
+                        <select class="form-control" id="district">
                             <option value="">Select District</option>
                             @foreach(DistrictData() as $item)
                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                             @endforeach
                         </select>
 
-                        <label for="name">Tehsil Name</label>
-                        <input type="text" id="name" name="name" placeholder="Tehsil Name" class="form-control">
+                        <label for="">Select Tehsil</label>
+                        <select class="form-control" id="tehsil" disabled="">
+                            <option value="">Select Tehsil</option>
+                        </select>
+
+                        <label for="">Select Qanoongoi</label>
+                        <select name="qanoongoi_id" class="form-control" id="qanoongoi" disabled="">
+                            <option value="">Select Qanoongoi</option>
+                        </select>
+
+                        <label for="name">Patwar Circle Name</label>
+                        <input type="text" id="name" name="name" placeholder="Patwar Circle Name" class="form-control">
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -90,4 +104,25 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('Script')
+
+    <script>
+
+        $("#district").on("change",function (){
+            var district = $("#district").val();
+            var route = "{{route('dashboard.tehsil.show','ID')}}";
+            var url = route.replace("ID", district);
+            getTehsilbyDistrictID(url);
+        })
+
+        $("#tehsil").on("change",function (){
+            var tehsil = $("#tehsil").val();
+            var route = "{{route('dashboard.qanoongoi.show','ID')}}";
+            var url = route.replace("ID", tehsil);
+            getQanoongoibyTehsilID(url);
+        })
+
+    </script>
 @endsection

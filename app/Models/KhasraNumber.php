@@ -10,7 +10,8 @@ class KhasraNumber extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'name',
+        'murabba_number_id'
     ];
     public function murabba_number(){
         return $this->belongsTo(MurabbaNumber::class);

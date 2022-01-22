@@ -15,7 +15,11 @@ class TehsilController extends Controller
      */
     public function index()
     {
-        return view('project.tehsil.index');
+        $tehsil = Tehsil::with('District')->get();
+
+        return view('project.tehsil.index',[
+            'tehsil'=>$tehsil
+        ]);
     }
 
     /**
@@ -53,12 +57,13 @@ class TehsilController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Tehsil  $tehsil
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Tehsil $tehsil)
+    public function show($district_id)
     {
-        //
+        $tehsil = Tehsil::where('district_id',$district_id)->get();
+        return $tehsil;
     }
 
     /**

@@ -10,7 +10,8 @@ class Qanoongoi extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'name',
+        'tehsil_id'
     ];
     public function tehsil(){
         return $this->belongsTo(Tehsil::class);

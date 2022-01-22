@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class PatwarCicleFactory extends Factory
+class PatwarCircleFactory extends Factory
 {
     /**
      * Define the model's default state.

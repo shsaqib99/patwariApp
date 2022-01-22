@@ -10,7 +10,8 @@ class SubKhasraNumber extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'name',
+        'kharsa_number_id'
     ];
     public function khasra_number(){
         return $this->belongsTo(KhasraNumber::class);

@@ -16,7 +16,10 @@ class DistrictController extends Controller
      */
     public function index()
     {
-        return view('project.district.index');
+        $district = District::all();
+        return view('project.district.index',[
+            'district' =>$district
+        ]);
     }
 
     /**
@@ -58,7 +61,7 @@ class DistrictController extends Controller
      * @param  \App\Models\District  $district
      * @return \Illuminate\Http\Response
      */
-    public function show(District $district)
+    public function show($id)
     {
         //
     }
@@ -119,4 +122,5 @@ class DistrictController extends Controller
             ]);
         }
     }
+
 }

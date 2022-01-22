@@ -10,8 +10,10 @@ class PatwarCircle extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'name',
+        'qanoongoi_id'
     ];
+
     public function qanoongoi(){
         return $this->belongsTo(Qanoongoi::class);
     }

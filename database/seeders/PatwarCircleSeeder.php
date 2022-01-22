@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class PatwarCicleSeeder extends Seeder
+class PatwarCircleSeeder extends Seeder
 {
     /**
      * Run the database seeds.

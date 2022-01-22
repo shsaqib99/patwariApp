@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\PatwarCicle;
+use App\Models\PatwarCircle;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class PatwarCiclePolicy
+class PatwarCirclePolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class PatwarCiclePolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\PatwarCicle  $patwarCicle
+     * @param  \App\Models\PatwarCircle  $patwarCircle
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, PatwarCicle $patwarCicle)
+    public function view(User $user, PatwarCircle $patwarCircle)
     {
         //
     }
@@ -48,10 +48,10 @@ class PatwarCiclePolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\PatwarCicle  $patwarCicle
+     * @param  \App\Models\PatwarCircle  $patwarCircle
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, PatwarCicle $patwarCicle)
+    public function update(User $user, PatwarCircle $patwarCircle)
     {
         //
     }
@@ -60,10 +60,10 @@ class PatwarCiclePolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\PatwarCicle  $patwarCicle
+     * @param  \App\Models\PatwarCircle  $patwarCircle
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, PatwarCicle $patwarCicle)
+    public function delete(User $user, PatwarCircle $patwarCircle)
     {
         //
     }
@@ -72,10 +72,10 @@ class PatwarCiclePolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\PatwarCicle  $patwarCicle
+     * @param  \App\Models\PatwarCircle  $patwarCircle
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, PatwarCicle $patwarCicle)
+    public function restore(User $user, PatwarCircle $patwarCircle)
     {
         //
     }
@@ -84,10 +84,10 @@ class PatwarCiclePolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\PatwarCicle  $patwarCicle
+     * @param  \App\Models\PatwarCircle  $patwarCircle
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, PatwarCicle $patwarCicle)
+    public function forceDelete(User $user, PatwarCircle $patwarCircle)
     {
         //
     }

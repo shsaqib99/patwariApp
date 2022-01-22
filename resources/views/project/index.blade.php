@@ -2,6 +2,10 @@
 @section('title')
     Dashboard
 @endsection
+@section('StyleLink')
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="{{ asset('plugins/jqvmap/jqvmap.min.css')}}">
+@endsection
 @section('content')
         <!-- Main content -->
         <section class="content">
@@ -608,4 +612,19 @@
             </div><!-- /.container-fluid -->
         </section>
         <!-- /.Main content -->
+@endsection
+@section('Script')
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="{{ asset('dist/js/pages/dashboard.js')}}"></script>
+
+    <!-- ChartJS -->
+    <script src="{{ asset('plugins/chart.js/Chart.min.js')}}"></script>
+    <!-- Sparkline -->
+    <script src="{{ asset('plugins/sparklines/sparkline.js')}}"></script>
+    <!-- JQVMap -->
+    <script src="{{ asset('plugins/jqvmap/jquery.vmap.min.js')}}"></script>
+    <script src="{{ asset('plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="{{ asset('plugins/jquery-knob/jquery.knob.min.js')}}"></script>
+
 @endsection

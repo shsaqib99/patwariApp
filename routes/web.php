@@ -26,7 +26,13 @@ Route::group(['middleware' => ['auth', 'web']], function() {
     /*district*/
     Route::resource('district', \App\Http\Controllers\DistrictController::class, ['as' => 'dashboard']);
 
-    /*tehdil*/
+    /*tehsil*/
     Route::resource('tehsil', \App\Http\Controllers\TehsilController::class, ['as' => 'dashboard']);
+
+    /*qanoongoi*/
+    Route::resource('qanoongoi', \App\Http\Controllers\QanoongoiController::class, ['as' => 'dashboard']);
+
+    /*patwar circle*/
+    Route::resource('patwarcircle', \App\Http\Controllers\PatwarCircleController::class, ['as' => 'dashboard']);
 
 });

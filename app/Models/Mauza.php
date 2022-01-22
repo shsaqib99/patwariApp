@@ -10,7 +10,8 @@ class Mauza extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'name',
+        'patwar_circle_id'
     ];
     public function patwar_circle(){
         return $this->belongsTo(PatwarCircle::class);

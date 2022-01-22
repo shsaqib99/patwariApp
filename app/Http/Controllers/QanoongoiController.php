@@ -15,7 +15,11 @@ class QanoongoiController extends Controller
      */
     public function index()
     {
-        //
+        $qanoongoi = Qanoongoi::with('Tehsil.District')->get();
+
+        return view('project.qanoongoi.index',[
+            'qanoongoi' => $qanoongoi
+        ]);
     }
 
     /**
@@ -31,12 +35,23 @@ class QanoongoiController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreQanoongoiRequest  $request
+     * @param  \App\Http\Requests\StoreQanoongoiRequest  $qanoongoi
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreQanoongoiRequest $request)
+    public function store(StoreQanoongoiRequest $qanoongoi)
     {
-        //
+        $qanoongoi = Qanoongoi::create($qanoongoi->all());
+        if ($qanoongoi == true){
+            return redirect(route('dashboard.qanoongoi.index'))->with([
+                'msg' => 'Qanoongoi Created!',
+                'status' => 'success'
+            ]);
+        } else {
+            return redirect(route('dashboard.qanoongoi.index'))->with([
+                'msg' => 'Server Error!',
+                'status' => 'error'
+            ]);
+        }
     }
 
     /**
@@ -45,9 +60,10 @@ class QanoongoiController extends Controller
      * @param  \App\Models\Qanoongoi  $qanoongoi
      * @return \Illuminate\Http\Response
      */
-    public function show(Qanoongoi $qanoongoi)
+    public function show($tehsil_id)
     {
-        //
+        $qanoongoi = Qanoongoi::where('tehsil_id',$tehsil_id)->get();
+        return $qanoongoi;
     }
 
     /**
@@ -58,7 +74,8 @@ class QanoongoiController extends Controller
      */
     public function edit(Qanoongoi $qanoongoi)
     {
-        //
+        $data = $qanoongoi;
+        return view('project.qanoongoi.update',compact('data'));
     }
 
     /**
@@ -70,7 +87,18 @@ class QanoongoiController extends Controller
      */
     public function update(UpdateQanoongoiRequest $request, Qanoongoi $qanoongoi)
     {
-        //
+        $qanoongoi->update($request->all());
+        if ($qanoongoi == true){
+            return redirect(route('dashboard.qanoongoi.index'))->with([
+                'msg' => 'Qanoongoi Update!',
+                'status' => 'success'
+            ]);
+        } else {
+            return redirect(route('dashboard.qanoongoi.update'))->with([
+                'msg' => 'Server Error!',
+                'status' => 'error'
+            ]);
+        }
     }
 
     /**
@@ -81,6 +109,17 @@ class QanoongoiController extends Controller
      */
     public function destroy(Qanoongoi $qanoongoi)
     {
-        //
+        $qanoongoi->delete();
+        if ($qanoongoi == true){
+            return redirect(route('dashboard.qanoongoi.index'))->with([
+                'msg' => 'Qanoongoi Delete!',
+                'status' => 'success'
+            ]);
+        } else {
+            return redirect(route('dashboard.qanoongoi.index'))->with([
+                'msg' => 'Server Error!',
+                'status' => 'error'
+            ]);
+        }
     }
 }

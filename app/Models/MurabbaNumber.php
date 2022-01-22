@@ -10,7 +10,8 @@ class MurabbaNumber extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'name',
+        'mauza_id'
     ];
     public function mauza(){
         return $this->belongsTo(Mauza::class);
