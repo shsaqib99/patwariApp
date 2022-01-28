@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\KhasraNumber;
-use App\Http\Requests\StoreKhasraNumberRequest;
-use App\Http\Requests\UpdateKhasraNumberRequest;
+use App\Models\Khatooni;
+use App\Http\Requests\StoreKhatooniRequest;
+use App\Http\Requests\UpdateKhatooniRequest;
 
-class KhasraNumberController extends Controller
+class KhatooniController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class KhasraNumberController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreKhasraNumberRequest  $request
+     * @param  \App\Http\Requests\StoreKhatooniRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreKhasraNumberRequest $request)
+    public function store(StoreKhatooniRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class KhasraNumberController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\KhasraNumber  $khasraNumber
+     * @param  \App\Models\Khatooni  $khatooni
      * @return \Illuminate\Http\Response
      */
-    public function show(KhasraNumber $khasraNumber)
+    public function show(Khatooni $khatooni)
     {
         //
     }
@@ -53,10 +53,10 @@ class KhasraNumberController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\KhasraNumber  $khasraNumber
+     * @param  \App\Models\Khatooni  $khatooni
      * @return \Illuminate\Http\Response
      */
-    public function edit(KhasraNumber $khasraNumber)
+    public function edit(Khatooni $khatooni)
     {
         //
     }
@@ -64,11 +64,11 @@ class KhasraNumberController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateKhasraNumberRequest  $request
-     * @param  \App\Models\KhasraNumber  $khasraNumber
+     * @param  \App\Http\Requests\UpdateKhatooniRequest  $request
+     * @param  \App\Models\Khatooni  $khatooni
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateKhasraNumberRequest $request, KhasraNumber $khasraNumber)
+    public function update(UpdateKhatooniRequest $request, Khatooni $khatooni)
     {
         //
     }
@@ -76,10 +76,10 @@ class KhasraNumberController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\KhasraNumber  $khasraNumber
+     * @param  \App\Models\Khatooni  $khatooni
      * @return \Illuminate\Http\Response
      */
-    public function destroy(KhasraNumber $khasraNumber)
+    public function destroy(Khatooni $khatooni)
     {
         //
     }

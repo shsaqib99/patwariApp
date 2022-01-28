@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSubKhasraNumbersTable extends Migration
+class CreateKhaivetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,20 @@ class CreateSubKhasraNumbersTable extends Migration
      */
     public function up()
     {
-        Schema::create('sub_khasra_numbers', function (Blueprint $table) {
+        Schema::create('khaivets', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('khasra_number_id');
+            $table->unsignedInteger('mauza_id');
             $table->string('name');
             $table->timestamps();
 
-            $table->foreign('khasra_number_id')
+            $table->foreign('mauza_id')
                 ->references('id')
-                ->on('khasra_numbers')
+                ->on('mauzas')
                 ->onDelete('cascade');
 
         });
+
+
     }
 
     /**
@@ -34,6 +36,6 @@ class CreateSubKhasraNumbersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sub_khasra_numbers');
+        Schema::dropIfExists('khaivets');
     }
 }

@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('title')
-    Edit Patwar Circle
+    Edit Khaivet
 @endsection
 
 @section('content')
@@ -11,10 +11,10 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            Edit Patwar Circle
+                            Edit Khaivet
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('dashboard.PatwarCircle.update',$data->id) }}" method="post">
+                            <form action="{{ route('dashboard.khaivet.update',$data->id) }}" method="post">
                                 @method('put')
                                 @csrf
                                 <div class="row">
@@ -35,15 +35,27 @@
                                         <br>
 
                                         <label for="">Select Qanoongoi</label>
-                                        <select name="qanoongoi_id" class="form-control" id="qanoongoi" disabled="">
-                                            <option value="">Select Qanoongoi</option>
-                                            @foreach(qanoogoiData() as $item)
-                                                <option {{ ($data->qanoongoi_id == $item->id) ? 'selected' : '' }} value="{{ $item->id }}">{{ $item->name }}</option>
+                                        <select class="form-control" id="qanoongoi" disabled="">
+                                            <option value="">Select  Qanoongoi</option>
+                                        </select>
+                                        <br>
+
+                                        <label for="">Select Patwar Circle</label>
+                                        <select class="form-control" id="patwar_circle" disabled="">
+                                            <option value="">Select  Patwar Circle</option>
+                                        </select>
+                                        <br>
+
+                                        <label for="">Select Mauza</label>
+                                        <select name="mauza_id" class="form-control" id="mauza" disabled="">
+                                            <option value="">Select Mauza</option>
+                                            @foreach(murabbaNumberData() as $item)
+                                                <option {{ ($data->mauza_id == $item->id) ? 'selected' : '' }} value="{{ $item->id }}">{{ $item->name }}</option>
                                             @endforeach
                                         </select>
                                         <br>
-                                        <label for="name">Patwar Circle Name</label>
-                                        <input type="text" class="form-control" value="{{ $data->name ?? '' }}" placeholder="Patwar Circle Name" name="name">
+                                        <label for="name">Khaivet</label>
+                                        <input type="text" class="form-control" value="{{ $data->name ?? '' }}" placeholder="Khaivet" name="name">
                                         <br>
                                         <button class="btn btn-success float-right">Update</button>
                                     </div>
@@ -65,6 +77,7 @@
 
     <script>
 
+
         $("#district").on("change",function (){
             var district = $("#district").val();
             var route = "{{route('dashboard.tehsil.show','ID')}}";
@@ -79,6 +92,18 @@
             getQanoongoibyTehsilID(url);
         })
 
+        $("#qanoongoi").on("change",function (){
+            var qanoongoi = $("#qanoongoi").val();
+            var route = "{{route('dashboard.PatwarCircle.show','ID')}}";
+            var url = route.replace("ID", qanoongoi);
+            getPatwarCirclebyQanoogoiID(url);
+        })
+        $("#patwar_circle").on("change",function (){
+            var patwar_circle = $("#patwar_circle").val();
+            var route = "{{route('dashboard.mauza.show','ID')}}";
+            var url = route.replace("ID", patwar_circle);
+            getMauzabyPatwarCircleID(url);
+        })
 
     </script>
 

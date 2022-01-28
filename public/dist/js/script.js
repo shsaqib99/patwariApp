@@ -33,6 +33,69 @@ function deleteFun(mainID,route){
 }
 
 
+function getMauzabyPatwarCircleID(url) {
+
+    $.ajax({
+        type: 'GET',
+        url: url,
+        success: function(data) {
+            if (data.length > 0) {
+                $("#mauza").empty();
+                var option = "<option value=''> Select Mauza</option>";
+                $.each(data, function (i, obj) {
+                    option += "<option value=" + obj.id + ">" + obj.name + "</option>";
+                });
+                $(option).appendTo('#mauza');
+                $("#mauza").attr('disabled',false);
+            }else{
+                toastr.error("No Mauza found for this Patwar Circle");
+                $("#mauza").empty();
+                $("#mauza").attr("disabled", true);
+            }
+        },
+        error: function (data) {
+            $("#patwar_circle").attr("disabled", true);
+            toastr.error("No Mauza found for this Patwar Circle");
+        }
+    });
+
+}
+
+
+
+
+function getPatwarCirclebyQanoogoiID(url) {
+
+    $.ajax({
+        type: 'GET',
+        url: url,
+        success: function(data) {
+            if (data.length > 0) {
+                $("#patwar_circle").empty();
+                var option = "<option value=''> Select Patwar Circle</option>";
+                $.each(data, function (i, obj) {
+                    option += "<option value=" + obj.id + ">" + obj.name + "</option>";
+                });
+                $(option).appendTo('#patwar_circle');
+                $("#patwar_circle").attr('disabled',false);
+            }else{
+                toastr.error("No Qanoongoi found for this Qanoongoi");
+                $("#patwar_circle").empty();
+                $("#patwar_circle").attr("disabled", true);
+            }
+        },
+        error: function (data) {
+            $("#patwar_circle").attr("disabled", true);
+            toastr.error("No PatwarCircle found for this Qanoongoi");
+        }
+    });
+
+}
+
+
+
+
+
 function getQanoongoibyTehsilID(url) {
 
     $.ajax({
@@ -41,10 +104,11 @@ function getQanoongoibyTehsilID(url) {
         success: function(data) {
             if (data.length > 0) {
                 $("#qanoongoi").empty();
+                var option = "<option value=''> Select Qanoongoi</option>";
                 $.each(data, function (i, obj) {
-                    var option = "<option value=" + obj.id + ">" + obj.name + "</option>";
-                    $(option).appendTo('#qanoongoi');
+                    option += "<option value=" + obj.id + ">" + obj.name + "</option>";
                 });
+                    $(option).appendTo('#qanoongoi');
                 $("#qanoongoi").attr('disabled',false);
             }else{
                 toastr.error("No Qanoongoi found for this Tehsil");
@@ -70,10 +134,11 @@ function getTehsilbyDistrictID(url) {
         success: function(data) {
             if (data.length > 0) {
                 $("#tehsil").empty();
+                var option = "<option value=''> Select Tehsil</option>";
                 $.each(data, function (i, obj) {
-                    var option = "<option value=" + obj.id + ">" + obj.name + "</option>";
-                    $(option).appendTo('#tehsil');
+                    option += "<option value=" + obj.id + ">" + obj.name + "</option>";
                 });
+                $(option).appendTo('#tehsil');
                 $("#tehsil").attr('disabled',false);
             }else{
                 toastr.error("No Tehsil found for this District");

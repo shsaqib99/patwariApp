@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class KhasraNumberSeeder extends Seeder
+class KhatooniSeeder extends Seeder
 {
     /**
      * Run the database seeds.

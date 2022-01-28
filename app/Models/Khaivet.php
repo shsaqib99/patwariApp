@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MurabbaNumber extends Model
+class Khaivet extends Model
 {
     use HasFactory;
 
@@ -13,12 +13,14 @@ class MurabbaNumber extends Model
         'name',
         'mauza_id'
     ];
+
     public function mauza(){
         return $this->belongsTo(Mauza::class);
     }
 
-    public function khasra_numbers(){
-        return $this->hasMany(KhasraNumber::class);
+    public function khatoonis(){
+        return $this->hasMany(Khatooni::class);
     }
+
 
 }

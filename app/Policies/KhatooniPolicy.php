@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\Models\MurabbaNumber;
+use App\Models\Khatooni;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class MurabbaNumberPolicy
+class KhatooniPolicy
 {
     use HandlesAuthorization;
 
@@ -25,10 +25,10 @@ class MurabbaNumberPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\MurabbaNumber  $murabbaNumber
+     * @param  \App\Models\Khatooni  $khatooni
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, MurabbaNumber $murabbaNumber)
+    public function view(User $user, Khatooni $khatooni)
     {
         //
     }
@@ -48,10 +48,10 @@ class MurabbaNumberPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\MurabbaNumber  $murabbaNumber
+     * @param  \App\Models\Khatooni  $khatooni
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, MurabbaNumber $murabbaNumber)
+    public function update(User $user, Khatooni $khatooni)
     {
         //
     }
@@ -60,10 +60,10 @@ class MurabbaNumberPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\MurabbaNumber  $murabbaNumber
+     * @param  \App\Models\Khatooni  $khatooni
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, MurabbaNumber $murabbaNumber)
+    public function delete(User $user, Khatooni $khatooni)
     {
         //
     }
@@ -72,10 +72,10 @@ class MurabbaNumberPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\MurabbaNumber  $murabbaNumber
+     * @param  \App\Models\Khatooni  $khatooni
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, MurabbaNumber $murabbaNumber)
+    public function restore(User $user, Khatooni $khatooni)
     {
         //
     }
@@ -84,10 +84,10 @@ class MurabbaNumberPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\MurabbaNumber  $murabbaNumber
+     * @param  \App\Models\Khatooni  $khatooni
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, MurabbaNumber $murabbaNumber)
+    public function forceDelete(User $user, Khatooni $khatooni)
     {
         //
     }

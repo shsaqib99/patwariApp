@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('title')
-    Edit Patwar Circle
+    Edit Mauza
 @endsection
 
 @section('content')
@@ -11,10 +11,10 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            Edit Patwar Circle
+                            Edit Mauza
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('dashboard.PatwarCircle.update',$data->id) }}" method="post">
+                            <form action="{{ route('dashboard.mauza.update',$data->id) }}" method="post">
                                 @method('put')
                                 @csrf
                                 <div class="row">
@@ -35,14 +35,20 @@
                                         <br>
 
                                         <label for="">Select Qanoongoi</label>
-                                        <select name="qanoongoi_id" class="form-control" id="qanoongoi" disabled="">
-                                            <option value="">Select Qanoongoi</option>
-                                            @foreach(qanoogoiData() as $item)
-                                                <option {{ ($data->qanoongoi_id == $item->id) ? 'selected' : '' }} value="{{ $item->id }}">{{ $item->name }}</option>
+                                        <select class="form-control" id="qanoongoi" disabled="">
+                                            <option value="">Select  Qanoongoi</option>
+                                        </select>
+                                        <br>
+
+                                        <label for="">Select Patwar Circle</label>
+                                        <select name="patwar_circle_id" class="form-control" id="patwar_circle" disabled="">
+                                            <option value="">Select Patwar Circle</option>
+                                            @foreach(patwarCircleData() as $item)
+                                                <option {{ ($data->patwar_circle_id == $item->id) ? 'selected' : '' }} value="{{ $item->id }}">{{ $item->name }}</option>
                                             @endforeach
                                         </select>
                                         <br>
-                                        <label for="name">Patwar Circle Name</label>
+                                        <label for="name">Mauza Name</label>
                                         <input type="text" class="form-control" value="{{ $data->name ?? '' }}" placeholder="Patwar Circle Name" name="name">
                                         <br>
                                         <button class="btn btn-success float-right">Update</button>
@@ -65,6 +71,7 @@
 
     <script>
 
+
         $("#district").on("change",function (){
             var district = $("#district").val();
             var route = "{{route('dashboard.tehsil.show','ID')}}";
@@ -79,6 +86,12 @@
             getQanoongoibyTehsilID(url);
         })
 
+        $("#qanoongoi").on("change",function (){
+            var qanoongoi = $("#qanoongoi").val();
+            var route = "{{route('dashboard.PatwarCircle.show','ID')}}";
+            var url = route.replace("ID", qanoongoi);
+            getPatwarCirclebyQanoogoiID(url);
+        })
 
     </script>
 

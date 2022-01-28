@@ -93,6 +93,46 @@
                     </a>
                 </li>
 
+                {{--  Mauza --}}
+                <li class="nav-item">
+                    <a href="{{ route('dashboard.mauza.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Mauza
+                        </p>
+                    </a>
+                </li>
+
+                {{--  Khaivet --}}
+                <li class="nav-item">
+                    <a href="{{ route('dashboard.khaivet.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Khaivet
+                        </p>
+                    </a>
+                </li>
+
+                {{--  Khatooni --}}
+                <li class="nav-item">
+                    <a href="{{ route('dashboard.khatooni.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Khatooni
+                        </p>
+                    </a>
+                </li>
+
+                {{--  Khasra --}}
+                <li class="nav-item">
+                    <a href="{{ route('dashboard.khasra.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Khasra
+                        </p>
+                    </a>
+                </li>
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

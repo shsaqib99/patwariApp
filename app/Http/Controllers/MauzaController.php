@@ -15,7 +15,13 @@ class MauzaController extends Controller
      */
     public function index()
     {
-        //
+        $mauza = Mauza::with('patwar_circle.Qanoongoi.Tehsil.District')->get();
+
+        return view('project.mauza.index',[
+            'mauza' => $mauza
+        ]);
+
+
     }
 
     /**
@@ -36,7 +42,18 @@ class MauzaController extends Controller
      */
     public function store(StoreMauzaRequest $request)
     {
-        //
+        $mauza = Mauza::create($request->all());
+        if ($mauza == true){
+            return redirect(route('dashboard.mauza.index'))->with([
+                'msg' => 'Mauza Created!',
+                'status' => 'success'
+            ]);
+        } else {
+            return redirect(route('dashboard.mauza.index'))->with([
+                'msg' => 'Server Error!',
+                'status' => 'error'
+            ]);
+        }
     }
 
     /**
@@ -45,9 +62,10 @@ class MauzaController extends Controller
      * @param  \App\Models\Mauza  $mauza
      * @return \Illuminate\Http\Response
      */
-    public function show(Mauza $mauza)
+    public function show($patwar_circle_id)
     {
-        //
+        $mauza = Mauza::where('patwar_circle_id',$patwar_circle_id)->get();
+        return $mauza;
     }
 
     /**
@@ -58,7 +76,8 @@ class MauzaController extends Controller
      */
     public function edit(Mauza $mauza)
     {
-        //
+        $data = $mauza;
+        return view('project.mauza.update',compact('data'));
     }
 
     /**
@@ -70,7 +89,18 @@ class MauzaController extends Controller
      */
     public function update(UpdateMauzaRequest $request, Mauza $mauza)
     {
-        //
+        $mauza->update($request->all());
+        if ($mauza == true){
+            return redirect(route('dashboard.mauza.index'))->with([
+                'msg' => 'Mauza Update!',
+                'status' => 'success'
+            ]);
+        } else {
+            return redirect(route('dashboard.mauza.update'))->with([
+                'msg' => 'Server Error!',
+                'status' => 'error'
+            ]);
+        }
     }
 
     /**
@@ -81,6 +111,17 @@ class MauzaController extends Controller
      */
     public function destroy(Mauza $mauza)
     {
-        //
+        $mauza->delete();
+        if ($mauza == true){
+            return redirect(route('dashboard.mauza.index'))->with([
+                'msg' => 'Mauza Delete!',
+                'status' => 'success'
+            ]);
+        } else {
+            return redirect(route('dashboard.mauza.index'))->with([
+                'msg' => 'Server Error!',
+                'status' => 'error'
+            ]);
+        }
     }
 }

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\MurabbaNumber;
-use App\Http\Requests\StoreMurabbaNumberRequest;
-use App\Http\Requests\UpdateMurabbaNumberRequest;
+use App\Models\Khasra;
+use App\Http\Requests\StoreKhasraRequest;
+use App\Http\Requests\UpdateKhasraRequest;
 
-class MurabbaNumberController extends Controller
+class KhasraController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -31,10 +31,10 @@ class MurabbaNumberController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreMurabbaNumberRequest  $request
+     * @param  \App\Http\Requests\StoreKhasraRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreMurabbaNumberRequest $request)
+    public function store(StoreKhasraRequest $request)
     {
         //
     }
@@ -42,10 +42,10 @@ class MurabbaNumberController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\MurabbaNumber  $murabbaNumber
+     * @param  \App\Models\Khasra  $khasra
      * @return \Illuminate\Http\Response
      */
-    public function show(MurabbaNumber $murabbaNumber)
+    public function show(Khasra $khasra)
     {
         //
     }
@@ -53,10 +53,10 @@ class MurabbaNumberController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\MurabbaNumber  $murabbaNumber
+     * @param  \App\Models\Khasra  $khasra
      * @return \Illuminate\Http\Response
      */
-    public function edit(MurabbaNumber $murabbaNumber)
+    public function edit(Khasra $khasra)
     {
         //
     }
@@ -64,11 +64,11 @@ class MurabbaNumberController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateMurabbaNumberRequest  $request
-     * @param  \App\Models\MurabbaNumber  $murabbaNumber
+     * @param  \App\Http\Requests\UpdateKhasraRequest  $request
+     * @param  \App\Models\Khasra  $khasra
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateMurabbaNumberRequest $request, MurabbaNumber $murabbaNumber)
+    public function update(UpdateKhasraRequest $request, Khasra $khasra)
     {
         //
     }
@@ -76,10 +76,10 @@ class MurabbaNumberController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\MurabbaNumber  $murabbaNumber
+     * @param  \App\Models\Khasra  $khasra
      * @return \Illuminate\Http\Response
      */
-    public function destroy(MurabbaNumber $murabbaNumber)
+    public function destroy(Khasra $khasra)
     {
         //
     }

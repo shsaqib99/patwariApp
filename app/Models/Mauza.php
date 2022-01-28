@@ -17,8 +17,8 @@ class Mauza extends Model
         return $this->belongsTo(PatwarCircle::class);
     }
 
-    public function murabba_numbers(){
-        return $this->hasMany(MurabbaNumber::class);
+    public function khaivets(){
+        return $this->hasMany(Khaivet::class);
     }
 
 }

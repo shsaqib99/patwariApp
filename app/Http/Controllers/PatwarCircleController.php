@@ -60,9 +60,10 @@ class PatwarCircleController extends Controller
      * @param  \App\Models\PatwarCircle  $PatwarCircle
      * @return \Illuminate\Http\Response
      */
-    public function show(PatwarCircle $PatwarCircle)
+    public function show($qanoongoi_id)
     {
-        //
+        $patwar_circle = PatwarCircle::where('qanoongoi_id',$qanoongoi_id)->get();
+        return $patwar_circle;
     }
 
     /**
@@ -71,9 +72,9 @@ class PatwarCircleController extends Controller
      * @param  \App\Models\PatwarCircle  $PatwarCircle
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(PatwarCircle $PatwarCircle)
     {
-        $data = PatwarCircle::find($id);
+        $data = $PatwarCircle;
         return view('project.patwar_circle.update',compact('data'));
     }
 

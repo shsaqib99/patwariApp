@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMurabbaNumbersTable extends Migration
+class CreateKhasrasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,16 @@ class CreateMurabbaNumbersTable extends Migration
      */
     public function up()
     {
-        Schema::create('murabba_numbers', function (Blueprint $table) {
+        Schema::create('khasras', function (Blueprint $table) {
+
             $table->increments('id');
-            $table->unsignedInteger('mauza_id');
+            $table->unsignedInteger('khatooni_id');
             $table->string('name');
             $table->timestamps();
 
-            $table->foreign('mauza_id')
+            $table->foreign('khatooni_id')
                 ->references('id')
-                ->on('mauzas')
+                ->on('khatoonis')
                 ->onDelete('cascade');
 
         });
@@ -34,6 +35,6 @@ class CreateMurabbaNumbersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('murabba_numbers');
+        Schema::dropIfExists('khasras');
     }
 }

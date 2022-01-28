@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class SubKhasraNumberFactory extends Factory
+class KhasraFactory extends Factory
 {
     /**
      * Define the model's default state.

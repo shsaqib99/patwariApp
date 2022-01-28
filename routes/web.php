@@ -35,4 +35,16 @@ Route::group(['middleware' => ['auth', 'web']], function() {
     /*patwar circle*/
     Route::resource('PatwarCircle', \App\Http\Controllers\PatwarCircleController::class, ['as' => 'dashboard']);
 
+    /*mauza*/
+    Route::resource('mauza', \App\Http\Controllers\MauzaController::class, ['as' => 'dashboard']);
+
+    /*Khaivet  */
+    Route::resource('khaivet', \App\Http\Controllers\KhaivetController::class, ['as' => 'dashboard']);
+
+    /*Khatooni */
+    Route::resource('khatooni', \App\Http\Controllers\KhatooniController::class, ['as' => 'dashboard']);
+
+    /*Khasra*/
+    Route::resource('khasra', \App\Http\Controllers\KhasraController::class, ['as' => 'dashboard']);
+
 });
