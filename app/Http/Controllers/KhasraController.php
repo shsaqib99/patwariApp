@@ -15,7 +15,11 @@ class KhasraController extends Controller
      */
     public function index()
     {
-        //
+        $khasra = Khasra::with('khatooni.khaivet.mauza.patwar_circle.Qanoongoi.Tehsil.District')->get();
+
+        return view('project.khasra.index',[
+            'khasra' => $khasra
+        ]);
     }
 
     /**
@@ -36,7 +40,18 @@ class KhasraController extends Controller
      */
     public function store(StoreKhasraRequest $request)
     {
-        //
+        $khasra = Khasra::create($request->all());
+        if ($khasra == true){
+            return redirect(route('dashboard.khasra.index'))->with([
+                'msg' => 'Khasra Created!',
+                'status' => 'success'
+            ]);
+        } else {
+            return redirect(route('dashboard.khasra.index'))->with([
+                'msg' => 'Server Error!',
+                'status' => 'error'
+            ]);
+        }
     }
 
     /**
@@ -45,9 +60,10 @@ class KhasraController extends Controller
      * @param  \App\Models\Khasra  $khasra
      * @return \Illuminate\Http\Response
      */
-    public function show(Khasra $khasra)
+    public function show($khatooni_id)
     {
-        //
+        $khasra = Khasra::where('khatooni_id',$khatooni_id)->get();
+        return $khasra;
     }
 
     /**
@@ -58,7 +74,8 @@ class KhasraController extends Controller
      */
     public function edit(Khasra $khasra)
     {
-        //
+        $data = $khasra;
+        return view('project.khasra.update',compact('data'));
     }
 
     /**
@@ -70,7 +87,18 @@ class KhasraController extends Controller
      */
     public function update(UpdateKhasraRequest $request, Khasra $khasra)
     {
-        //
+        $khasra->update($request->all());
+        if ($khasra == true){
+            return redirect(route('dashboard.khasra.index'))->with([
+                'msg' => 'Khasra Update!',
+                'status' => 'success'
+            ]);
+        } else {
+            return redirect(route('dashboard.khasra.update'))->with([
+                'msg' => 'Server Error!',
+                'status' => 'error'
+            ]);
+        }
     }
 
     /**
@@ -81,6 +109,17 @@ class KhasraController extends Controller
      */
     public function destroy(Khasra $khasra)
     {
-        //
+        $khasra->delete();
+        if ($khasra == true){
+            return redirect(route('dashboard.khasra.index'))->with([
+                'msg' => 'Khasra Delete!',
+                'status' => 'success'
+            ]);
+        } else {
+            return redirect(route('dashboard.khasra.index'))->with([
+                'msg' => 'Server Error!',
+                'status' => 'error'
+            ]);
+        }
     }
 }

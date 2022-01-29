@@ -15,7 +15,11 @@ class KhatooniController extends Controller
      */
     public function index()
     {
-        //
+        $khatooni = Khatooni::with('khaivet.mauza.patwar_circle.Qanoongoi.Tehsil.District')->get();
+
+        return view('project.khatooni.index',[
+            'khatooni' => $khatooni
+        ]);
     }
 
     /**
@@ -36,7 +40,18 @@ class KhatooniController extends Controller
      */
     public function store(StoreKhatooniRequest $request)
     {
-        //
+        $khatooni = Khatooni::create($request->all());
+        if ($khatooni == true){
+            return redirect(route('dashboard.khatooni.index'))->with([
+                'msg' => 'Khatooni Created!',
+                'status' => 'success'
+            ]);
+        } else {
+            return redirect(route('dashboard.khatooni.index'))->with([
+                'msg' => 'Server Error!',
+                'status' => 'error'
+            ]);
+        }
     }
 
     /**
@@ -45,9 +60,10 @@ class KhatooniController extends Controller
      * @param  \App\Models\Khatooni  $khatooni
      * @return \Illuminate\Http\Response
      */
-    public function show(Khatooni $khatooni)
+    public function show($khaivet_id)
     {
-        //
+        $khanooti = Khatooni::where('khaivet_id',$khaivet_id)->get();
+        return $khanooti;
     }
 
     /**
@@ -58,7 +74,8 @@ class KhatooniController extends Controller
      */
     public function edit(Khatooni $khatooni)
     {
-        //
+        $data = $khatooni;
+        return view('project.khatooni.update',compact('data'));
     }
 
     /**
@@ -70,7 +87,18 @@ class KhatooniController extends Controller
      */
     public function update(UpdateKhatooniRequest $request, Khatooni $khatooni)
     {
-        //
+        $khatooni->update($request->all());
+        if ($khatooni == true){
+            return redirect(route('dashboard.khatooni.index'))->with([
+                'msg' => 'Khaivet Update!',
+                'status' => 'success'
+            ]);
+        } else {
+            return redirect(route('dashboard.khatooni.update'))->with([
+                'msg' => 'Server Error!',
+                'status' => 'error'
+            ]);
+        }
     }
 
     /**
@@ -81,6 +109,17 @@ class KhatooniController extends Controller
      */
     public function destroy(Khatooni $khatooni)
     {
-        //
+        $khatooni->delete();
+        if ($khatooni == true){
+            return redirect(route('dashboard.khatooni.index'))->with([
+                'msg' => 'Khatooni Delete!',
+                'status' => 'success'
+            ]);
+        } else {
+            return redirect(route('dashboard.khatooni.index'))->with([
+                'msg' => 'Server Error!',
+                'status' => 'error'
+            ]);
+        }
     }
 }

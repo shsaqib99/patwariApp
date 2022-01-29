@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('title')
-    Edit Khaivet
+    Edit Khasra
 @endsection
 
 @section('content')
@@ -11,10 +11,10 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-header">
-                            Edit Khaivet
+                            Edit Khasra
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('dashboard.khaivet.update',$data->id) }}" method="post">
+                            <form action="{{ route('dashboard.khasra.update',$data->id) }}" method="post">
                                 @method('put')
                                 @csrf
                                 <div class="row">
@@ -49,13 +49,25 @@
                                         <label for="">Select Mauza</label>
                                         <select name="mauza_id" class="form-control" id="mauza" disabled="">
                                             <option value="">Select Mauza</option>
-                                            @foreach(mauzaData() as $item)
-                                                <option {{ ($data->mauza_id == $item->id) ? 'selected' : '' }} value="{{ $item->id }}">{{ $item->name }}</option>
+                                        </select>
+                                        <br>
+
+                                        <label for="">Select Khaivet</label>
+                                        <select name="khaivet_id" class="form-control" id="khaivet" disabled="">
+                                            <option value="">Select Khaivet</option>
+                                        </select>
+                                        <br>
+
+                                        <label for="">Select Khatooni</label>
+                                        <select name="khatooni_id" class="form-control" id="khatooni" disabled="">
+                                            <option value="">Select Khatooni</option>
+                                            @foreach(khatooniData() as $item)
+                                                <option {{ ($data->khatooni_id == $item->id) ? 'selected' : '' }} value="{{ $item->id }}">{{ $item->name }}</option>
                                             @endforeach
                                         </select>
                                         <br>
-                                        <label for="name">Khaivet</label>
-                                        <input type="text" class="form-control" value="{{ $data->name ?? '' }}" placeholder="Khaivet" name="name">
+                                        <label for="name">Khasra</label>
+                                        <input type="text" class="form-control" value="{{ $data->name ?? '' }}" placeholder="Khasra" name="name">
                                         <br>
                                         <button class="btn btn-success float-right">Update</button>
                                     </div>
@@ -104,6 +116,21 @@
             var url = route.replace("ID", patwar_circle);
             getMauzabyPatwarCircleID(url);
         })
+
+        $("#mauza").on("change",function (){
+            var mauza = $("#mauza").val();
+            var route = "{{route('dashboard.khaivet.show','ID')}}";
+            var url = route.replace("ID", mauza);
+            getKhaivetbyMauzaID(url);
+        })
+
+        $("#khaivet").on("change",function (){
+            var khaivet = $("#khaivet").val();
+            var route = "{{route('dashboard.khaivet.show','ID')}}";
+            var url = route.replace("ID", khaivet);
+            getKhatoonibyKhaivetID(url);
+        })
+
 
     </script>
 

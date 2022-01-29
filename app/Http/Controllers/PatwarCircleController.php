@@ -42,12 +42,12 @@ class PatwarCircleController extends Controller
     {
         $patwar_circle = PatwarCircle::create($request->all());
         if ($patwar_circle == true){
-            return redirect(route('dashboard.patwarcircle.index'))->with([
+            return redirect(route('dashboard.PatwarCircle.index'))->with([
                 'msg' => 'PatwarCircle Created!',
                 'status' => 'success'
             ]);
         } else {
-            return redirect(route('dashboard.patwarcircle.index'))->with([
+            return redirect(route('dashboard.PatwarCircle.index'))->with([
                 'msg' => 'Server Error!',
                 'status' => 'error'
             ]);
@@ -111,12 +111,12 @@ class PatwarCircleController extends Controller
     {
         $PatwarCircle->delete();
         if ($PatwarCircle == true){
-            return redirect(route('dashboard.patwarcircle.index'))->with([
+            return redirect(route('dashboard.PatwarCircle.index'))->with([
                 'msg' => 'Patwar Cicle Delete!',
                 'status' => 'success'
             ]);
         } else {
-            return redirect(route('dashboard.patwarcircle.index'))->with([
+            return redirect(route('dashboard.PatwarCircle.index'))->with([
                 'msg' => 'Server Error!',
                 'status' => 'error'
             ]);

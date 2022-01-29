@@ -33,6 +33,64 @@ function deleteFun(mainID,route){
 }
 
 
+function getKhatoonibyKhaivetID(url) {
+
+    $.ajax({
+        type: 'GET',
+        url: url,
+        success: function(data) {
+            if (data.length > 0) {
+                $("#khatooni").empty();
+                var option = "<option value=''> Select Khatooni</option>";
+                $.each(data, function (i, obj) {
+                    option += "<option value=" + obj.id + ">" + obj.name + "</option>";
+                });
+                $(option).appendTo('#khatooni');
+                $("#khatooni").attr('disabled',false);
+            }else{
+                toastr.error("No Khatooni found for this Khaivet");
+                $("#khatooni").empty();
+                $("#khatooni").attr("disabled", true);
+            }
+        },
+        error: function (data) {
+            $("#khatooni").attr("disabled", true);
+            toastr.error("No Khatooni found for this Khaivet");
+        }
+    });
+
+}
+
+function getKhaivetbyMauzaID(url) {
+
+    $.ajax({
+        type: 'GET',
+        url: url,
+        success: function(data) {
+            if (data.length > 0) {
+                $("#khaivet").empty();
+                var option = "<option value=''> Select Khaivet</option>";
+                $.each(data, function (i, obj) {
+                    option += "<option value=" + obj.id + ">" + obj.name + "</option>";
+                });
+                $(option).appendTo('#khaivet');
+                $("#khaivet").attr('disabled',false);
+            }else{
+                toastr.error("No Khaivet found for this Mauza");
+                $("#khaivet").empty();
+                $("#khaivet").attr("disabled", true);
+            }
+        },
+        error: function (data) {
+            $("#khaivet").attr("disabled", true);
+            toastr.error("No Khaivet found for this Mauza");
+        }
+    });
+
+}
+
+
+
 function getMauzabyPatwarCircleID(url) {
 
     $.ajax({
@@ -54,7 +112,7 @@ function getMauzabyPatwarCircleID(url) {
             }
         },
         error: function (data) {
-            $("#patwar_circle").attr("disabled", true);
+            $("#mauza").attr("disabled", true);
             toastr.error("No Mauza found for this Patwar Circle");
         }
     });

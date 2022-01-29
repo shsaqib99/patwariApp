@@ -35,23 +35,23 @@ if (!function_exists('mauzaData')){
     }
 }
 
-if (!function_exists('murabbaNumberData')){
-    function murabbaNumberData(){
-        $data = \App\Models\MurabbaNumber::all();
+if (!function_exists('khaivetData')){
+    function khaivetData(){
+        $data = \App\Models\Khaivet::all();
         return $data;
     }
 }
 
-if (!function_exists('khasraNumberData')){
-    function khasraNumberData(){
-        $data = \App\Models\KhasraNumber::all();
+if (!function_exists('khatooniData')){
+    function khatooniData(){
+        $data = \App\Models\Khatooni::all();
         return $data;
     }
 }
 
-if (!function_exists('subKhasraNumberData')){
-    function subKhasraNumberData(){
-        $data = \App\Models\SubKhasraNumber::all();
+if (!function_exists('khasraData')){
+    function khasraData(){
+        $data = \App\Models\Khasra::all();
         return $data;
     }
 }
